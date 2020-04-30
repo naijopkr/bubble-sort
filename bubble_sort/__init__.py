@@ -1,18 +1,21 @@
 def bubble_sort(original_list = []):
-    copy_list = original_list.copy()
-    while True:
-        swapped = False
-        for i in range(len(copy_list)):
-            if copy_list[i] > copy_list[i+1]:
-                pivot = copy_list[i]
-                copy_list[i] = copy_list[i+1]
-                copy_list[i+1] = pivot
-                swapped = True
+    arr = original_list.copy()
+    list_len = len(arr)
+    count = 0
 
-            if i == len(copy_list) - 2:
-                break
+    for i in range(list_len):
+        swapped = False
+        count += 1
+        for j in range (list_len - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
 
         if not swapped:
             break
 
-    return copy_list
+    print()
+    print(f'Counter: {count}')
+    print()
+
+    return arr
